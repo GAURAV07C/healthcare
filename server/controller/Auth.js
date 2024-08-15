@@ -9,15 +9,6 @@ exports.sendOTP = async (req, res) => {
   try {
     const { email } = req.body;
 
-    // const checkUserPresent = await User.findOne({ email });
-
-    // if (checkUserPresent) {
-    //   return res.status(401).json({
-    //     success: false,
-    //     message: "User already register",
-    //   });
-    // }
-
     var otp = otpGenerator.generate(6, {
       upperCaseAlphabets: false,
       lowerCaseAlphabets: false,
@@ -57,7 +48,7 @@ exports.sendOTP = async (req, res) => {
 
 exports.verifyOTP = async (req, res) => {
   try {
-    const { fullName, accountType, contactNumber,email, otp } = req.body;
+    const { fullName, accountType, contactNumber, email, otp } = req.body;
 
     if (!email || !otp) {
       return res.status(403).json({
@@ -69,6 +60,8 @@ exports.verifyOTP = async (req, res) => {
     const recentOtp = await OTP.find({ email })
       .sort({ createdAt: -1 })
       .limit(1);
+
+    console.log("recent otp", recentOtp)
 
     if (recentOtp.length == 0) {
       return res.status(400).json({
@@ -111,17 +104,17 @@ exports.verifyOTP = async (req, res) => {
         message: "Logged in successfully",
       });
     } else {
-
-
-      
-      // User doesn't exist, create a new user and log them i
+      // User doesn't exist, create a new user and log them in
       const profileDetails = await Profile.create({
         gender: null,
         dateOfBirth: null,
         address: null,
         contactNumber: contactNumber,
         occupation: null,
+
         emergencyContact: null,
+        phoneNumber: null
+
       });
       const newUser = await User.create({
         email,

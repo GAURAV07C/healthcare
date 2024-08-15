@@ -44,7 +44,7 @@ exports.auth = async (req, res, next) => {
 exports.isPatient = async (req, res, next) => {
   try {
     const userDetails = await User.findOne({ email: req.user.email });
-  
+
 
     if (userDetails.accountType != "Patient") {
       return res.status(500).json({

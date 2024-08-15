@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setSignupData } from "../../../slices/authSlice";
 
 import Svg from "../../common/Svg";
+const { SvgLogo, SvgEmail, SvgName, SvgContact } = Svg;
 
 const Templates = () => {
   const navigate = useNavigate();
@@ -35,9 +36,9 @@ const Templates = () => {
   const submitHandler = async (data) => {
     console.log("data", data);
 
-    const signupData ={
-      ...data
-    }
+    const signupData = {
+      ...data,
+    };
 
     // submit form
     try {
@@ -58,7 +59,7 @@ const Templates = () => {
             {/* logo */}
             <div className="w-2/3  flex flex-col justify-start">
               <div className="flex">
-                <Svg />
+                <SvgLogo />
               </div>
               {/* content */}
               <div className="">
@@ -82,21 +83,7 @@ const Templates = () => {
                       </label>
                       <div className="relative w-full flex flex-row  text-sm   p-2 pl-10 gap-3  bg-[#1A1D21] border border-[#363A3D] border-1 rounded-[8px]">
                         <div className="absolute left-3 top-2.5 py-1 -px-3 text-2xl">
-                          <svg
-                            width="16"
-                            height="20"
-                            viewBox="0 0 16 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M15 19C15 15.6863 12.3137 13 9 13H7C3.68629 13 1 15.6863 1 19M12 5C12 7.20914 10.2091 9 8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5Z"
-                              stroke="#CDE9DF"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
+                          <SvgName />
                         </div>
                         <input
                           type="text"
@@ -134,19 +121,7 @@ const Templates = () => {
 #1A1D21]  p-2 pl-10 gap-3  bg-[#1A1D21] border border-[#363A3D] border-1 rounded-[8px] py-3"
                       >
                         <div className="absolute left-3 top-2.5 items-center  py-1 -px-3">
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M4 6L10 12M20 6L14 12M10 12L10.5858 12.5858C11.3668 13.3668 12.6332 13.3668 13.4142 12.5858L14 12M10 12L3.87868 18.1213M14 12L20.1213 18.1213M20.1213 18.1213C20.6642 17.5784 21 16.8284 21 16V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V16C3 16.8284 3.33579 17.5784 3.87868 18.1213M20.1213 18.1213C19.5784 18.6642 18.8284 19 18 19H6C5.17157 19 4.42157 18.6642 3.87868 18.1213"
-                              stroke="#CDE9DF"
-                              stroke-linecap="round"
-                            />
-                          </svg>
+                          <SvgEmail />
                         </div>
                         <input
                           type="email"
@@ -175,20 +150,7 @@ const Templates = () => {
 #1A1D21]  p-2 pl-10 gap-3  bg-[#1A1D21] border border-[#363A3D] border-1 rounded-[8px]"
                       >
                         <div className="absolute left-3 top-2.5">
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M13.9157 20.2681L11.8489 18.8627C9.20932 17.0678 6.93225 14.7907 5.1373 12.1511L3.73188 10.0843C2.47798 8.24028 2.87204 5.73943 4.63223 4.3704L5.53514 3.66814C6.98923 2.53718 9.09777 2.87934 10.1196 4.41209L10.5588 5.07092C10.9656 5.68114 11.0143 6.46257 10.6863 7.11854C10.0829 8.32531 10.1139 9.7521 10.7692 10.9315L10.9339 11.2281C11.363 12.0004 11.9996 12.637 12.7719 13.0661L13.0685 13.2308C14.2479 13.8861 15.6747 13.9171 16.8815 13.3137C17.5374 12.9857 18.3189 13.0344 18.9291 13.4412L19.5879 13.8804C21.1207 14.9022 21.4628 17.0108 20.3319 18.4649L19.6296 19.3678C18.2606 21.128 15.7597 21.522 13.9157 20.2681Z"
-                              stroke="#CDE9DF"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                          </svg>
+                          <SvgContact />
                         </div>
                         <div className="flex flex-row gap-5 ">
                           <select
@@ -241,7 +203,7 @@ const Templates = () => {
                     <button
                       disabled={loading}
                       type="submit"
-                      className={`w-full rounded-md bg-[#24AE7C] px-6 py-3 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
+                      className={`w-full rounded-md bg-[#24AE7C] px-6 py-3 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)]
                      ${
                        !loading &&
                        "transition-all duration-200 hover:scale-95 hover:shadow-none"
@@ -264,9 +226,8 @@ const Templates = () => {
       {loading ? (
         <div>ffggf </div>
       ) : (
-        showModel && <VerifyEmail  onclose={() => setShowModel(false)} />
+        showModel && <VerifyEmail onclose={() => setShowModel(false)} />
       )}
-        
     </div>
   );
 };

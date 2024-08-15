@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
       require: true,
       trim: true,
     },
-    
+
     accountType: {
       type: String,
       enum: ["Patient", "Doctor"],
@@ -34,9 +34,6 @@ const userSchema = new mongoose.Schema(
     medicalDetails:{
       type: mongoose.Schema.Types.ObjectId,
       ref:'MedicalDetails'
-    },
-    resetPasswordExpires: {
-      type: Date,
     },
     image: {
       type: String,

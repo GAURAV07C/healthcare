@@ -10,7 +10,7 @@ const profileSchema = new mongoose.Schema({
     },
     address:{
         type:String,
-        trim:true, 
+        trim:true,
     },
     contactNumber:{
         type:String,
@@ -23,6 +23,9 @@ const profileSchema = new mongoose.Schema({
     emergencyContact:{
         type:String,
         trim:true
+    },
+    phoneNumber:{
+        type:String,
     }
 });
 
